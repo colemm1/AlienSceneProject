@@ -155,8 +155,11 @@ public class AlienScene {
         int count = 5 + (int) (Math.random() * 3);
         for (int i = 0; i < count; i++) {
             int leafSize = (int) (height * (0.2 + Math.random() * 0.55));
-            int shift = (int) ((Math.random() - 0.5) * height * 0.4);
-            int leafY = yPosition + trunkHeight - leafSize / 3 + i * (height / 10);
+            int shift = (int) (Math.random() * height * 0.2);
+            if (i % 2 == 0) {
+                shift = -shift;
+            }
+            int leafY = yPosition + trunkHeight - leafSize / 3  + i * (height / 10);
             drawTriangle(leafColor, xPosition + shift - leafSize / 2, leafY, leafSize);
         }
     }
